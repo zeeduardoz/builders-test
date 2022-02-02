@@ -2,7 +2,7 @@
 
 Application developed for the application in the company builders as Senior React Developer
 
-![application](https://prnt.sc/26n63il)
+![application](https://i.imgur.com/Eo7rzko.png)
 
 ## Available Scripts
 

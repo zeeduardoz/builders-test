@@ -67,8 +67,6 @@ export function WeatherProvider({ children }: WeatherProviderProps) {
 
   const [data, setData] = useState<DataProps | null>(null);
 
-  const API_KEY = "d0012444de47b91c254dfb9018c161d0";
-
   useEffect(() => {
     // initial fuction for get geo location and data
     const getLocation = () => {
@@ -84,7 +82,7 @@ export function WeatherProvider({ children }: WeatherProviderProps) {
 
             api
               .get(
-                `weather?lang=pt_br&units=metric&lat=${position.coords.longitude}&lon=${position.coords.latitude}&appid=${API_KEY}`
+                `weather?lang=pt_br&units=metric&lat=${position.coords.longitude}&lon=${position.coords.latitude}&appid=${process.env.REACT_APP_API_KEY}`
               )
               .then((response) => {
                 if (response.data) setData(response.data);
@@ -105,7 +103,7 @@ export function WeatherProvider({ children }: WeatherProviderProps) {
     setData(null);
 
     const response = await api.get(
-      `weather?lang=pt_br&units=metric&lat=${longitude}&lon=${latitude}&appid=${API_KEY}`
+      `weather?lang=pt_br&units=metric&lat=${longitude}&lon=${latitude}&appid=${process.env.REACT_APP_API_KEY}`
     );
 
     if (response.data) setData(response.data);
